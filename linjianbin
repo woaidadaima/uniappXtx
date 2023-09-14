@@ -1,0 +1,155 @@
+[33mcommit d5032f832e0463a9d5da377fafdb7d05cd6e94be[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: linjianbin <981596326@qq.com>
+Date:   Wed Sep 13 20:25:32 2023 +0800
+
+    feat:first commit
+
+[33mcommit 375703a49a94f48c87fb947f98ec39979f3ed628[m
+Author: linjianbin <981596326@qq.com>
+Date:   Wed Sep 13 15:16:07 2023 +0800
+
+    feat:第一次提交
+
+[33mcommit fc6303da588b0185c43fbd6408a9146b7942923b[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Wed Aug 30 15:40:46 2023 +0800
+
+    chore: update deps
+
+[33mcommit 767f427c3bdf1335864253c9890c1f56a9aec186[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Tue Aug 22 16:28:04 2023 +0800
+
+    chore: add README
+
+[33mcommit 0d33d1226872740296f397a77d435ec3d2f00942[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Tue Aug 22 16:03:07 2023 +0800
+
+    chore: update deps
+
+[33mcommit a2061094b0b29c34fb18857134d40de59807d13b[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Fri Aug 18 15:39:58 2023 +0800
+
+    chore: add login page
+
+[33mcommit 8cbd72c4ec5c8ce37d7bf187d084a93d88fe423f[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Fri Aug 18 15:07:37 2023 +0800
+
+    chore: update deps
+
+[33mcommit e928d08651e41e87b557b4d69b51f3b50238672b[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Fri Aug 18 11:45:48 2023 +0800
+
+    chore: update tsconfig.json
+
+[33mcommit d92ec65997502542248235b2256788d9c364b4b9[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Fri Aug 18 11:45:11 2023 +0800
+
+    chore: update deps
+
+[33mcommit 3f4881343fff2e4afcbac9e1fa286d46982b7933[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Thu Aug 17 10:38:11 2023 +0800
+
+    chore: add @vue/runtime-core deps
+
+[33mcommit de1594ee0b4e1a34895256f3c8b123febe5751d2[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Thu Aug 17 09:50:28 2023 +0800
+
+    chore: update nvm alpha
+
+[33mcommit b588e7ad2299e56afcac654c3b8f0f75f27a7979[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Mon Aug 14 23:09:18 2023 +0800
+
+    chore: 更新小程序全局变量
+
+[33mcommit c8871c72da35000125e0f098a02d7be1cf5e848e[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Thu Aug 10 22:53:02 2023 +0800
+
+    chore: 补充 pinia 持久化存储
+
+[33mcommit 822b15373c9a55be37ff96705635ffdab0bab06b[m
+Author: 苏杰豪 <Megasu@qq.com>
+Date:   Thu Aug 10 09:24:01 2023 +0800
+
+    chore: update pre-commit
+
+[33mcommit f6c451a21d6ebfa1514cd3b95575b52cebda1758[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Fri May 5 17:38:18 2023 +0800
+
+    chore: 增加 editorconfig 配置和插件推荐
+
+[33mcommit 7dcedab29afe9962db11d15cb29653810b78349a[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Fri May 5 11:32:37 2023 +0800
+
+    chore: 压缩65%图片体积(减少109k)
+
+[33mcommit e808e8af54f551c25ddec476bbc51eb7e9751a7c[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Thu May 4 17:00:59 2023 +0800
+
+    chore: update deps
+
+[33mcommit 0a07450dea0230522a39062a51a1f462b066648c[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Wed May 3 14:26:34 2023 +0800
+
+    chore: update deps
+
+[33mcommit 3840434a133915deda0f05cd0c0bbc260be74d84[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Mon Apr 24 18:05:30 2023 +0800
+
+    chore: 更新 uni-app 依赖包
+
+[33mcommit 693e2d80ceb424209f88b4ebe705d872ae65bbb2[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Mon Apr 24 17:56:16 2023 +0800
+
+    chore: 完善项目配置
+
+[33mcommit bf691cef2774a3f22702aadc82a50e2070e18b21[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Thu Dec 8 14:46:09 2022 +0800
+
+    feat: 增加 pinia 基本结构
+
+[33mcommit 172e2884fbfa1796549d6d61e198d98bbaa5e54e[m
+Author: SuJiehao <sujiehao@itcast.cn>
+Date:   Wed Dec 7 13:03:04 2022 +0800
+
+    chore: 更新 uni-app 依赖包
+
+[33mcommit e2c6fe4296afd6fc24c3922407db28c70d7d5ae2[m
+Author: SuJiehao <sujiehao@itcast.cn>
+Date:   Tue Dec 6 17:15:30 2022 +0800
+
+    chore: 更新 volar 配置
+
+[33mcommit 0d69f6291c701fb566407eb5d45730862024bfcf[m
+Author: SuJiehao <sujiehao@itcast.cn>
+Date:   Sat Dec 3 12:55:34 2022 +0800
+
+    feat: 增加vue基本结构
+
+[33mcommit 3ea5a643b01dee51cc1325f1e0a3e98fa81559cf[m
+Author: SuJiehao <sujiehao@itcast.cn>
+Date:   Wed Nov 30 21:00:50 2022 +0800
+
+    feat: 增加项目目录
+
+[33mcommit 9e6d43a96f8e6051636cfd4337afa569fce7697e[m
+Author: SuJiehao <megasu@qq.com>
+Date:   Wed Nov 30 15:19:57 2022 +0800
+
+    init
