@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { deleteMemberAddress, getMemberAddress } from '@/services/address'
+import { useAddressStore } from '@/stores/modules/address'
 import type { AddressItem } from '@/types/address'
 import { onShow } from '@dcloudio/uni-app'
 import { ref } from 'vue'
@@ -24,6 +25,18 @@ const onDeleteAddress = (id: string) => {
     },
   })
 }
+const addressStore = useAddressStore()
+//返回首页或者返回订单也
+const back = (item: AddressItem) => {
+  uni.navigateBack({
+    success: () => {
+      console.log('fanhui')
+      //保存用户地址到本地存储
+      addressStore.setAddress(item)
+      console.log(addressStore.address)
+    },
+  })
+}
 //页面展示的时候获取地址列表
 onShow(() => {
   getMemberAddressList()
@@ -38,17 +51,18 @@ onShow(() => {
         <uni-swipe-action class="address-list">
           <!-- 收货地址项 -->
           <uni-swipe-action-item class="item" v-for="item in addressList" :key="item.id">
-            <view class="item-content">
+            <view class="item-content" @tap="back(item)">
               <view class="user">
                 {{ item.receiver }}
                 <text class="contact">{{ item.contact }}</text>
                 <text v-if="item.isDefault" class="badge">默认</text>
               </view>
-              <view class="locate">{{ item.fullLocation }}</view>
+              <view class="locate">{{ item.fullLocation }} {{ item.address }}</view>
               <navigator
                 class="edit"
                 hover-class="none"
                 :url="`/pagesMember/address-form/address-form?id=${item.id}`"
+                @tap.stop="() => {}"
               >
                 修改
               </navigator>

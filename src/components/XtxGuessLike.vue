@@ -6,7 +6,7 @@ import { ref } from 'vue'
 import { onMounted } from 'vue'
 //获取猜你喜欢数据,泛型工具Required可以使每个参数成为必须
 const pageParams: Required<PageParams> = {
-  page: import.meta.env.DEV ? 30 : 1,
+  page: import.meta.env.DEV ? 1 : 1,
   pageSize: 10,
 }
 const isFinish = ref(false)

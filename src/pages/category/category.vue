@@ -6,7 +6,7 @@ import type { BannerItem } from '@/types/home'
 import { onLoad } from '@dcloudio/uni-app'
 import { computed } from 'vue'
 import { ref } from 'vue'
-import PageSkeleton from '../index/components/PageSkeleton.vue'
+import CategorySkeleton from './components/CategorySkeleton.vue'
 //获取分类页面广告轮播图
 const bannerList = ref<BannerItem[]>([])
 const getBannerList = async () => {
@@ -43,7 +43,7 @@ onLoad(async () => {
 </script>
 
 <template>
-  <PageSkeleton v-if="isOnLoading" />
+  <CategorySkeleton v-if="isOnLoading" />
   <view class="viewport" v-else>
     <!-- 搜索框 -->
     <view class="search">

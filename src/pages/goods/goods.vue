@@ -6,6 +6,14 @@ import type { GoodsResult } from '@/types/goods'
 import ServicePanel from './components/ServicePanel.vue'
 import AddressPanel from './components/AddressPanel.vue'
 import GoodsSkeleton from './components/GoodsSkeleton.vue'
+import type {
+  SkuPopupEvent,
+  SkuPopupInstanceType,
+  SkuPopupLocaldata,
+  SkuPopupProps,
+} from '@/types/vk-data-goods-sku-popup'
+import { computed } from 'vue'
+import { postMemberCart } from '@/services/cart'
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 const { id } = defineProps<{ id: string }>()
@@ -15,6 +23,24 @@ const getGoodsInfo = async (id: string) => {
   const res = await getGoodsApi(id)
   console.log(res)
   goodsInfo.value = res.result
+  skuGoods.value = {
+    _id: res.result.id,
+    name: res.result.name,
+    goods_thumb: res.result.mainPictures[0],
+    sku_list: res.result.skus.map((v) => ({
+      _id: v.id,
+      goods_id: res.result.id,
+      goods_name: res.result.name,
+      image: v.picture,
+      price: v.price * 100,
+      sku_name_arr: v.specs.map((vv) => vv.valueName),
+      stock: v.inventory,
+    })),
+    spec_list: res.result.specs.map((v) => ({
+      name: v.name,
+      list: v.values,
+    })),
+  }
 }
 //当前轮播图图片序号
 const curPic = ref(0)
@@ -43,8 +69,54 @@ const clickImg = (url: string[], index: number) => {
     current: index,
   })
 }
+//sku商品详情
+const skuGoods = ref<SkuPopupLocaldata>()
+//sku弹窗标志
+const skuKey = ref(false)
+const skumode = ref<1 | 2 | 3>(1)
+//打开sku弹窗
+const openPopup = (mode?: 1 | 2 | 3) => {
+  console.log(mode)
+  if (mode === 1) {
+    skumode.value = 1
+  } else if (mode === 2) {
+    skumode.value = 2
+  } else {
+    skumode.value = 3
+  }
+  console.log(skumode.value)
+
+  skuKey.value = true
+}
+const closePopup = () => {
+  skuKey.value = false
+}
+//sku实例
+const skuPopup = ref<SkuPopupInstanceType>()
+const selectArr = computed(() => skuPopup.value?.selectArr?.join(' ') || '请选择商品')
+//加入购物车
+const addCart = async (ev: SkuPopupEvent) => {
+  console.log('发请求加入购物车')
+  console.log(ev)
+  const res = await postMemberCart({ skuId: ev._id, count: ev.buy_num })
+  console.log(res)
+  uni.showToast({
+    icon: 'success',
+    title: '添加成功',
+  })
+  closePopup()
+}
+
 //判断页面是否正在加载
 const isLoading = ref(false)
+//立即购买页面跳转
+const buyNow = (ev: SkuPopupEvent) => {
+  console.log('tiao', ev)
+
+  uni.navigateTo({
+    url: `/pagesOrder/create/create?skuId=${ev._id}&count=${ev.buy_num}`,
+  })
+}
 onLoad(async () => {
   isLoading.value = true
   await getGoodsInfo(id)
@@ -89,7 +161,7 @@ onLoad(async () => {
       <view class="action">
         <view class="item arrow">
           <text class="label">选择</text>
-          <text class="text ellipsis"> 请选择商品规格 </text>
+          <text class="text ellipsis" @tap="openPopup(1)"> {{ selectArr }} </text>
         </view>
         <view class="item arrow" @tap="openDiolog('address')">
           <text class="label">送至</text>
@@ -155,13 +227,13 @@ onLoad(async () => {
       <button class="icons-button" open-type="contact">
         <text class="icon-handset"></text>客服
       </button>
-      <navigator class="icons-button" url="/pages/cart/cart" open-type="switchTab">
+      <navigator class="icons-button" url="/pages/cart/cart2">
         <text class="icon-cart"></text>购物车
       </navigator>
     </view>
     <view class="buttons">
-      <view class="addcart"> 加入购物车 </view>
-      <view class="buynow"> 立即购买 </view>
+      <view class="addcart" @tap="openPopup(2)"> 加入购物车 </view>
+      <view class="buynow" @tap="openPopup(3)"> 立即购买 </view>
     </view>
   </view>
 
@@ -170,6 +242,18 @@ onLoad(async () => {
     <ServicePanel v-show="popName === 'services'" @close="popup?.close()" />
     <AddressPanel v-show="popName === 'address'" @close="popup?.close()" />
   </uni-popup>
+  <vk-data-goods-sku-popup
+    ref="skuPopup"
+    v-model="skuKey"
+    :localdata="skuGoods"
+    buy-now-background-color="#28BA9B"
+    :actived-style="{ color: '#28BA9B', backgroundColor: '#E9F7F5', borderColor: '#27BA9B' }"
+    @add-cart="addCart"
+    @close="closePopup"
+    :mode="skumode"
+    :min-buy-num="1"
+    @buy-now="buyNow"
+  />
 </template>
 
 <style lang="scss">
