@@ -21,8 +21,10 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 console.log(safeAreaInsets?.top)
 //获取当前页面栈
 const pages = getCurrentPages() || []
+console.log(pages)
 //获取页面实例对象
 const pageInstance = pages.at(-1) as any
+console.log(pageInstance)
 //页面渲染完毕后绑定动画
 onReady(() => {
   pageInstance.animate(

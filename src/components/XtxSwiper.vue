@@ -38,7 +38,7 @@ const HandleChange: UniHelper.SwiperOnChange = (ev) => {
 }
 /* 轮播图 */
 .carousel {
-  height: 100%;
+  height: 280rpx;
   position: relative;
   overflow: hidden;
   transform: translateY(0);
